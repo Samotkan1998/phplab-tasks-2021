@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Create Class - Movie.
  * Implement the MovieInterface and following methods:
@@ -23,8 +24,9 @@ interface MovieInterface
 
     /**
      * @param string $title
+     * @return Movie
      */
-    public function setTitle(string $title): void;
+    public function setTitle(string $title): Movie;
 
     /**
      * @return string
@@ -33,8 +35,9 @@ interface MovieInterface
 
     /**
      * @param string $poster
+     * @return Movie
      */
-    public function setPoster(string $poster): void;
+    public function setPoster(string $poster): Movie;
 
     /**
      * @return string
@@ -43,6 +46,7 @@ interface MovieInterface
 
     /**
      * @param string $description
+     * @return Movie
      */
-    public function setDescription(string $description): void;
+    public function setDescription(string $description): Movie;
 }

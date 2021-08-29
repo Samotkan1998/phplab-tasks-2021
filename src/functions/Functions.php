@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Create the next tests in tests folder for next methods:
  * sayHello(), sayHelloArgument(), sayHelloArgumentWrapper(), countArguments(), countArgumentsWrapper().

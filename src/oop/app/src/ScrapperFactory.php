@@ -7,6 +7,9 @@ use src\oop\app\src\Parsers\FilmixParserStrategy;
 use src\oop\app\src\Transporters\CurlStrategy;
 use src\oop\app\src\Transporters\GuzzleAdapter;
 use Exception;
+use Symfony\Component\DomCrawler\Crawler;
+use src\oop\app\src\Models\Movie;
+use GuzzleHttp\Client;
 
 class ScrapperFactory
 {
@@ -19,9 +22,15 @@ class ScrapperFactory
     {
         switch ($domain) {
             case 'filmix':
-                return new Scrapper(new CurlStrategy(), new FilmixParserStrategy());
+                return new Scrapper(
+                    new CurlStrategy(),
+                    new FilmixParserStrategy(new Movie())
+                );
             case 'kinoukr':
-                return new Scrapper(new GuzzleAdapter(), new KinoukrDomCrawlerParserAdapter());
+                return new Scrapper(
+                    new GuzzleAdapter(new Client()),
+                    new KinoukrDomCrawlerParserAdapter(new Movie(), new Crawler())
+                );
             default:
                 throw new Exception('Resource not found!');
         }
