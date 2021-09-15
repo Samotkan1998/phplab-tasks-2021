@@ -1,5 +1,5 @@
 <?php
-$config = require_once './config.php';
+$config = require_once './config.example.php';
 
 $pdo = new \PDO(
     sprintf('mysql:host=%s;dbname=%s', $config['host'], $config['dbname']),
